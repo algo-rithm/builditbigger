@@ -3,6 +3,7 @@ package tech.rithm.jokedisplay.tasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Pair;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -28,6 +29,10 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
     protected String doInBackground(Pair<Context, String>... params){
         if(myApiService == null){
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
+                    .setRootUrl("https://builditbigger-150117.appspot.com/_ah/api/");
+
+            /*
+            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
@@ -35,6 +40,7 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
                             request.setDisableGZipContent(true);
                         }
                     });
+             */
             myApiService = builder.build();
         }
 
@@ -50,6 +56,8 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
 
     @Override
     protected void onPostExecute(String result){
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
+        toast.show();
     }
 }
