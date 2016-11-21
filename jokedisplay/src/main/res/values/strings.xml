@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JokeDisplay</string>
+    <string name="next_joke_button_text">Get Next Joke</string>
 </resources>

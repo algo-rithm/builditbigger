@@ -12,5 +12,13 @@
         android:text="@string/joke_button_text"
         android:onClick="requestRandomJoke"/>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/main_activity_banner">
+    </com.google.android.gms.ads.AdView>
+
 
 </LinearLayout>

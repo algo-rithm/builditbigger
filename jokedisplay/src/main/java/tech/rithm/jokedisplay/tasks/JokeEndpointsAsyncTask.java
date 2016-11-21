@@ -50,7 +50,9 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
         try {
             return myApiService.getJoke().execute().getData();
         } catch (IOException e){
+            e.printStackTrace();
             return e.getMessage();
+
         }
     }
 

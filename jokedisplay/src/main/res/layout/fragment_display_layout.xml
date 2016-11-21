@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/joke_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/joke_text_margin_LR"
+        android:layout_marginStart="@dimen/joke_text_margin_LR"
+        android:layout_marginRight="@dimen/joke_text_margin_LR"
+        android:layout_marginEnd="@dimen/joke_text_margin_LR"
+        tools:text="Joke. HAHAHAHA"/>
+
+    <ProgressBar
+        android:id="@+id/joke_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/joke_text"
+        android:layout_marginBottom="@dimen/progress_bar_margin_bottom"/>
+
+    <Button
+        android:id="@+id/next_joke_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/next_joke_button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/next_joke_button_margin_B"
+        android:layout_marginLeft="@dimen/joke_text_margin_LR"
+        android:layout_marginStart="@dimen/joke_text_margin_LR"
+        android:layout_marginRight="@dimen/joke_text_margin_LR"
+        android:layout_marginEnd="@dimen/joke_text_margin_LR"
+        android:text="@string/next_joke_button_text"/>
+
+</RelativeLayout>

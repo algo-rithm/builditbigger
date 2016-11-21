@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progress_bar_margin_bottom">24dp</dimen>
+    <dimen name="joke_text_margin_LR">16dp</dimen>
+    <dimen name="next_joke_button_height">44dp</dimen>
+    <dimen name="next_joke_button_margin_B">12dp</dimen>
+</resources>

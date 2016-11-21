@@ -20,10 +20,14 @@ public class JokeDisplayActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display_layout);
 
-        String joke = getIntent().getStringExtra(JOKE_EXTRA);
 
-        new JokeEndpointsAsyncTask().execute(new Pair<Context, String>(this, "Test for sayHi"));
+
+
+        //String joke = getIntent().getStringExtra(JOKE_EXTRA);
+
+        //new JokeEndpointsAsyncTask().execute(new Pair<Context, String>(this, "Test for sayHi"));
 
         //Toast.makeText(this, joke, Toast.LENGTH_LONG).show();
     }
