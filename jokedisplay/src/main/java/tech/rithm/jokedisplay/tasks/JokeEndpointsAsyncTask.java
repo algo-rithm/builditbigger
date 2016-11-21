@@ -20,13 +20,13 @@ import tech.rithm.builditbigger.backend.myApi.MyApi;
  * Created by rithm on 11/20/2016.
  */
 
-public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void, String> {
+public class JokeEndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     private static MyApi myApiService = null;
     private Context context;
 
     @Override
-    protected String doInBackground(Pair<Context, String>... params){
+    protected String doInBackground(Void... params){
         if(myApiService == null){
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("https://builditbigger-150117.appspot.com/_ah/api/");
@@ -44,8 +44,8 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
             myApiService = builder.build();
         }
 
-        context = params[0].first;
-        String joke = params[0].second;
+        //context = params[0].first;
+        //String joke = params[0].second;
 
         try {
             return myApiService.getJoke().execute().getData();
@@ -58,8 +58,12 @@ public class JokeEndpointsAsyncTask extends AsyncTask<Pair<Context,String>, Void
 
     @Override
     protected void onPostExecute(String result){
+        super.onPostExecute(result);
+        /*
         Toast toast = Toast.makeText(context, result, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
         toast.show();
+
+        */
     }
 }

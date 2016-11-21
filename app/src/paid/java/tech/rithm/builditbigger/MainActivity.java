@@ -1,11 +1,15 @@
 package tech.rithm.builditbigger;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.zip.Inflater;
 
@@ -18,11 +22,17 @@ import tech.rithm.jokedisplay.JokeDisplayActivity;
  */
 public class MainActivity extends Activity {
 
+    private boolean isConnected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         System.out.println(JokeFactory.getRandomJoke());
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
     }
 
@@ -33,9 +43,15 @@ public class MainActivity extends Activity {
 
     public void requestRandomJoke(View v){
 
-        Intent intent = new Intent(getApplicationContext(), JokeDisplayActivity.class);
-        intent.putExtra(JokeDisplayActivity.JOKE_EXTRA, JokeFactory.getRandomJoke());
-        startActivity(intent);
+        if(isConnected){
+            Intent intent = new Intent(getApplicationContext(), JokeDisplayActivity.class);
+            intent.putExtra(JokeDisplayActivity.JOKE_EXTRA, JokeFactory.getRandomJoke());
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, getString(R.string.no_internet_msg),Toast.LENGTH_LONG).show();
+        }
+
 
     }
 }

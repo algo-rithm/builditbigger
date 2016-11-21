@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="joke_button_text">$$$PAID ♥ Get JOKE ♥ PAID$$$</string>
+    <string name="joke_button_text"> ♥ Get JOKES ♥ </string>
+
 
 </resources>

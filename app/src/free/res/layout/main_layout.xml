@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:id="@+id/joke_button"
         android:text="@string/joke_button_text"
         android:onClick="requestRandomJoke"/>
@@ -16,9 +17,11 @@
         android:id="@+id/banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/progress_bar_margin_bottom"
         ads:adSize="BANNER"
         ads:adUnitId="@string/main_activity_banner">
     </com.google.android.gms.ads.AdView>
 
 
-</LinearLayout>
+</RelativeLayout>
